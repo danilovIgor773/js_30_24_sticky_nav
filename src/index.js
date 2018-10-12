@@ -1,3 +1,18 @@
 import './index.scss';
 
-console.log("Hello World");
+const nav = document.querySelector('#main');
+const topOfNav = nav.offsetTop;
+
+
+function fixNav(){
+  //console.log(topOfNav, window.scrollY);
+  if(window.scrollY >= topOfNav){
+    document.body.style.paddingTop = nav.offsetHeight + 'px';
+    document.body.classList.add('fixed-nav');
+  }else{
+    document.body.paddingTop = 0;
+    document.body.classList.remove('fixed-nav');
+  }
+}
+
+window.addEventListener('scroll', fixNav);
